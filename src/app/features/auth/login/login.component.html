@@ -1,0 +1,65 @@
+<div class="login-shell">
+  <div class="login-panel">
+    <div class="login-visual">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+      <div class="brand-block">
+        <p class="eyebrow">Firmeza</p>
+        <h1>Panel administrativo</h1>
+        <p class="subtitle">
+          Controla ventas, clientes, inventario y operación en una sola vista.
+        </p>
+      </div>
+    </div>
+
+    <div class="login-form-wrap">
+      <div class="login-card">
+        <div class="card-header">
+          <span class="badge">Acceso</span>
+          <h2>Iniciar sesión</h2>
+        </div>
+
+        <form (ngSubmit)="submit()" #loginForm="ngForm">
+          <label>
+            <span>Correo electrónico</span>
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]="email"
+              required
+              autocomplete="email"
+              placeholder="admin@firmeza.local"
+            />
+          </label>
+
+          <label>
+            <span>Contraseña</span>
+            <input
+              type="password"
+              name="password"
+              [(ngModel)]="password"
+              required
+              autocomplete="current-password"
+              placeholder="123456"
+            />
+          </label>
+
+          <div class="helper-row">
+            <span>Modo administrador</span>
+            <button type="button" class="ghost-button">Recordar</button>
+          </div>
+
+          <button
+            type="submit"
+            class="primary-button"
+            [disabled]="isSubmitting || loginForm.invalid"
+          >
+            {{ isSubmitting ? "Ingresando..." : "Entrar al panel" }}
+          </button>
+
+          <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

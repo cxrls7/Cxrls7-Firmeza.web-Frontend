@@ -1,0 +1,71 @@
+<div class="dashboard-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">F</span>
+      <div>
+        <strong>Firmeza</strong>
+        <small>Admin</small>
+      </div>
+    </div>
+
+    <nav>
+      <a class="active">Dashboard</a>
+      <a>Productos</a>
+      <a>Clientes</a>
+      <a>Ventas</a>
+      <a>Recibos</a>
+    </nav>
+
+    <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+  </aside>
+
+  <main class="content-panel">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Panel principal</p>
+        <h1>Bienvenido, {{ user?.email }}</h1>
+      </div>
+      <div class="topbar-meta">
+        <span class="status-dot"></span>
+        <span>{{ user?.role }}</span>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <article class="stat-card" *ngFor="let stat of stats">
+        <p>{{ stat.label }}</p>
+        <h2>{{ stat.value }}</h2>
+        <span>{{ stat.change }}</span>
+      </article>
+    </section>
+
+    <section class="main-grid">
+      <article class="panel-card large">
+        <div class="panel-title-row">
+          <h3>Resumen operativo</h3>
+          <button>Exportar</button>
+        </div>
+
+        <div class="chart-bars">
+          <span style="height: 35%"></span>
+          <span style="height: 52%"></span>
+          <span style="height: 68%"></span>
+          <span style="height: 80%"></span>
+          <span style="height: 62%"></span>
+          <span style="height: 92%"></span>
+          <span style="height: 100%"></span>
+        </div>
+      </article>
+
+      <article class="panel-card">
+        <div class="panel-title-row">
+          <h3>Actividad reciente</h3>
+        </div>
+
+        <ul class="activity-list">
+          <li *ngFor="let item of activity">{{ item }}</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</div>
